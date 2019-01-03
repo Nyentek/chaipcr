@@ -230,7 +230,8 @@ df -h
 
 rm /var/lib/dpkg/lock
 echo -e &quot;\n&quot; | dpkg --configure -a
-#dpkg --configure -a
+
+# kill processes that are holding the sdcard to be able to unmount and write to it.
 pkill julia
 pkill julia
 pkill julia
