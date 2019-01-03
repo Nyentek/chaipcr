@@ -489,6 +489,7 @@ apt-get -y -q autoremove --purge xserver* apache* gnome* libopencv* desktop* hic
              echo Building precompiling julia on sdcard
              julia_pkgdir=&quot;/sdcard/factory&quot;
              export JULIA_PKGDIR=/sdcard/factory/.julia
+             echo &quot;export JULIA_PKGDIR=/sdcard/factory/.julia&quot;&gt;&gt;~/.profile
       else
              echo freeing up some space
              rm -r /var/cache/apt /var/log/ /opt/QtEmbedded/imports /opt/QtEmbedded/translations /opt/QtEmbedded/tests
@@ -674,15 +675,10 @@ if $is_dev
 then
      echo No clean for dev image
 else
-     echo Cleaning julia folder
-#       find /sdcard/factory/.julia/v0.6/ -name .git | grep -v METADATA | xargs -I &apos;{}&apos; rm -r &apos;{}&apos;
+       echo Cleaning julia folder
        find /root/.julia/v0.6/ -name .git | grep -v METADATA | xargs -I &apos;{}&apos; rm -r &apos;{}&apos;
 fi
 
-julia_pkgdir=&quot;/root&quot;
-export JULIA_PKGDIR=/root/.julia
-#mv /sdcard/factory/.julia ~/.julia
-#ls -ahl  /sdcard/factory/
 df -h
 
 exit 0
@@ -830,7 +826,7 @@ fi
 
 echo  Deploy realtime to ~/tmp
 cp ~/chaipcr/deploy/device/realtime.service /lib/systemd/system/
-systemctl enable realtime.service
+systemctl disable realtime.service
 
 sync
 </command>
