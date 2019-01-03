@@ -752,7 +752,7 @@ sleep 60
 echo &quot;Setting up Julia: Initializing rep&quot;
 
 cd /tmp
-wget https://github.com/chaibio/chaipcr/raw/julia/bioinformatics/setup.jl
+wget https://github.com/chaibio/chaipcr/raw/master/bioinformatics/setup.jl
 if $is_dev
 then
       echo Building a debug image
@@ -806,7 +806,7 @@ fi
 rm chaibio_packages.jl
 
 cd /tmp
-wget https://github.com/chaibio/chaipcr/raw/julia/bioinformatics/setup.jl
+wget https://github.com/chaibio/chaipcr/raw/master/bioinformatics/setup.jl
 if $is_dev
 then
       echo Building a debug image
